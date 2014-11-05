@@ -1,0 +1,6 @@
+This text file is created for think python chapter13
+Anagram
+pythoN
+GivenProblem
+Anabella
+Instagram
