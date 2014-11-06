@@ -1,4 +1,8 @@
 # DEck consists of a list of cards as an attribute.
+''' Using inheritance '''
+''' During inheritance, new class inheirts the methods of the existing 
+	(parent) class. At the same time an inheritedd class (child)
+	is also different from parent '''
 
 class Card(object):
 	''' Class card to represent a playing card '''
@@ -18,39 +22,19 @@ class Deck(object):
 	def __init__(self):
 		self.cards = []
 		for suit in range(4):
-			for rank in range(1,15):
+			for rank in range(1,14):
 				card = Card(suit,rank)
 				self.cards.append(card)
 
-	def __str__(self):	
-		res = []
-		for card in self.cards:
-			res.append( str(card))
-		return '\n'.join(res)
 
-	''' to remove a particular card from the deck '''
-	def pop_card(self):
-		return self.cards.pop()
 
-	''' to add a new card into the existing deck '''
-	def add_card(self,card):
-		self.cards.append(card)
+class Hand(Deck):
+	''' Represents a hand of playing cards '''
+	''' Hand is inherited from Deck        '''
+	def __init__(self,label = ''):
+		self.cards = []
+		self.label = label
 
-	''' To shuffle a deck of cards '''
-	def shuffle(self):
-		import random
-		random.shuffle(self.cards)
-
-dck = Deck()
-print dck
-
-dck.pop_card()
-print dck
-
-new_card = Card(0,2)
-dck.add_card(new_card)
-
-print dck
-
-dck.shuffle()
-print dck
+hand = Hand('new hand')
+print hand.cards
+print hand.label
